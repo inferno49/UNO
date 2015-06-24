@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>UNO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+<script>
+function validateForm() {
+    var result = null;
+    var name = document.forms["rform"]["yourname"].value;
+    var emailid = document.forms["rform"]["emailid"].value;
+    var nname = document.forms["rform"]["nname"].value;
+    var pnumber = document.forms["rform"]["phoneno"].value;
+    var pwd = document.forms["rform"]["pwd"].value;
+    var cpwd = document.forms["rform"]["cpwd"].value;        
+    var namepattern = /^[A-Z,a-z]+ [A-Z,a-z ]+$/;
+    var emailpattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var phonenopattern = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;  
+    var passwordpattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/;
+        if (name==null || name=="") {
+        alert("Name must be filled out");
+        return false;
+    }
+    else
+    {
+    result = name.match(namepattern); 
+     if (result==null || result=="") {
+        alert("Name should have only characters and full name is required(First and Last)");
+        return false;
+    }
+    else
+    {
+        if (emailid == null || emailid == "") {
+        alert("Emailid must be filled out");
+        return false;
+    }
+    else
+    {
+    result = emailid.match(emailpattern); 
+     if (result==null || result=="") {
+        alert("Email should be of format abc@abc.com");
+        return false;
+    }    
+    else
+    {
+        if (pnumber==null || pnumber=="") {
+        alert("Phone number must be filled out");
+        return false;
+        
+        }
+        else
+    {
+    result = pnumber.match(phonenopattern); 
+     if (result==null || result=="") {
+        alert("Phone number should contain numbers and should be of format 123-456-7890 or (123) 456-7890 or 123 456 7890 or 123.456.7890 or +1 (123) 456-7890");
+        return false;
+    }    
+    else
+    {
+        if (pwd==null || pwd=="") {
+        alert("password must be filled out");
+        return false;
+        
+        }
+        else
+        {
+            if (cpwd==null || cpwd=="") {
+        alert("Confirm password must be filled out");
+        return false;
+        
+        }
+        else
+        {
+            if (cpwd != pwd) {
+        alert("Password and Confirm password must be equal");
+        return false;
+        
+        }
+        else
+        {
+    result = pwd.match(passwordpattern); 
+     if (result==null || result=="") {
+        alert("Password should follow given rules");
+        return false;
+    }        
+            
+        }
+            
+        }
+        }
+            
+        }
+    }
+                        
+    }
+    }
+    
+    }
+    }
+return true;            
+}
+
+
+</script>
+<style>
+#body{
+ background-image: url("../images/bg.jpg");	
+background-repeat: no-repeat;
+ 
+}
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:100px;
+    background-color:#eeeeee;
+    height:500px;
+    width:150px;
+    float:left;
+    padding:5px;	      
+}
+
+#section {
+    width:350px;
+    float:right;
+    padding:10px;
+   	 
+    
+}
+#footer {
+     background-color:black;
+     color:white;
+     clear:both;
+     text-align:center;
+     padding:5px;	 	
+     /* position:absolute; */
+     bottom:0;
+     width:100%;
+     height:60px;  
+  
+}
+</style>
+</head>
+ <body id ="body">
+ 
+ <div id="header">
+<h1>UNO 3.0 </h1>
+<i>The best Uno game around!!</i>
+</div>
+
+<div id="nav">
+<ul style="list-style: none;" >
+  <li><a href="login.html" class="btn btn-sucess btn-md">
+    <span class="glyphicon glyphicon-home"></span> Home</a></li>
+ <li><p><p> <a href="register.html" class="btn btn-sucess btn-md">
+  <span class="glyphicon glyphicon-log-in"></span>Register</a></p></p></li>
+  
+  
+  <li>  <a href="rules.html" class="btn btn-sucess btn-md">
+    <span class="glyphicon glyphicon-wrench"></span> How to play
+  </a></li>
+  
+</ul>
+</div>
+<div id ="section">
+<h1><i><font color="green">Register &nbsp;</font></i><span class="glyphicon glyphicon-ok"></span></h1>
+    <center>
+ <form name ="rform" action="../JSP/registration.jsp"  onsubmit="return validateForm()" method="post" >
+     <br></br>
+     <table>
+         <tr>
+             <td>
+         <label>Full Name :</label>
+</td>
+             <td>
+     <input name="yourname" type="text" maxlength="20" id="yourname" placeholder="Full Name" />
+        </td>
+         </tr>
+ <tr>
+             <td>
+         
+         <label>Email-Id :</label>
+             </td>
+     <td>
+    <input name="emailid" type="text" maxlength="25" id="emailid" placeholder="Email-id"/>
+     </td>
+ </tr>
+    <tr>
+             <td>
+         
+    <label>User Name :</label>
+             </td>
+        <td>
+    <input name="nname" type="text" maxlength="20" id="nname" placeholder="User Name" />
+   </td>
+    </tr>
+         <tr>
+             <td>
+    
+    <label>Phone No :</label>
+ 
+             </td>
+             <td>
+        <input name="phoneno" type="text" maxlength="17" id="phoneno" placeholder="(xxx)-xxx-xxxx" />
+             </td>
+         </tr>
+         <tr>
+             <td>
+    <label>Password :</label>
+             </td>
+             <td>
+    <input name="pwd" type="password" maxlength="15" id="pwd" placeholder="********" />
+    
+             </td>
+         </tr>
+         <tr>
+             <td>
+    <label>Confirm Password :</label>
+ 
+             </td>
+             <td>
+    <input name="cpwd" type="password" maxlength="15" id="cpwd" placeholder="********" />
+             </td>
+         </tr>
+    
+         <tr>
+             <td>
+    <input name="" type="submit" class="botton" value="Register" />
+             </td>
+             <td>
+    <input name="" type="reset" class="botton" value="Reset" />
+             </td>
+         </tr>
+         
+</table>
+     </form>
+      </center>
+<br></br>
+     <ul><h4><u>Password Settings: </u></h4>
+     
+     
+     <li>Must be between 8 and 12 characters.</li>
+     <li>Must include at least one upper case letter.</li>
+     <li>Must include at least one lower case letter.</li>
+     <li>Must include at least one numeric digit.</li>
+     </ul>
+
+
+   
+
+</div>
+<div id="footer">
+Happy Gaming
+</div>
+
+
+</body>
+</html>

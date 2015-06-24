@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>UNO Game</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+
+
+<script>
+function validateForm() {
+    
+    var result = null;
+    var emailid = document.forms["lform"]["emailid"].value;
+    var pwd = document.forms["lform"]["pwd"].value;
+    
+    
+    var emailpattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    var passwordpattern = /^(?=.*[A-Z].*[A-Z])(?=)(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).+$/; 
+if (emailid == null || emailid == "") {
+        alert("Emailid must be filled out");
+        return false;
+    }
+    else
+    {
+    result = emailid.match(emailpattern); 
+     if (result==null || result=="") {
+        alert("Email should be of format abc@abc.com");
+        return false;
+    }    
+    else
+    {
+ if (pwd==null || pwd=="") {
+        alert("password must be filled out");
+        return false;
+        }
+        else
+        {
+            result = pwd.match(passwordpattern); 
+     if (result==null || result=="") {
+        alert("Wrong password format..!!");
+        return false;
+    }        
+        }
+        
+
+    }
+
+}
+}
+</script>
+
+
+<style>
+
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
+	background:-moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a',GradientType=0);
+	background-color:#5cb811;
+}
+
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+#body{
+ background-image: url("../images/bg.jpg");	
+background-repeat: no-repeat;
+ 
+}
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:100px;
+    background-color:#eeeeee;
+    height:500px;
+    width:150px;
+    float:left;
+    padding:5px;	      
+}
+
+#section {
+    width:350px;
+    float:right;
+    padding:10px;	 
+    
+}
+#footer {
+     background-color:black;
+     color:white;
+     clear:both;
+     text-align:center;
+     padding:5p;
+     position:fixed;
+     bottom:0;
+     width:100%;
+     height:60px;  
+  
+}
+ul{
+text-align: left;
+}
+</style>
+</head>
+
+<body id="body">
+
+<div id="header">
+<h1>UNO 3.0 </h1>
+<i>The best Uno game around!!</i>
+</div>
+
+<div id="nav">
+<ul style="list-style: none;" >
+  <li><a href="login.html" class="btn btn-sucess btn-md">
+    <span class="glyphicon glyphicon-home"></span> Home</a></li>
+ <li><p><p> <a href="register.html" class="btn btn-sucess btn-md">
+  <span class="glyphicon glyphicon-log-in"></span>Register</a></p></p></li>
+  
+  
+  <li>  <a href="rules.html" class="btn btn-sucess btn-md">
+    <span class="glyphicon glyphicon-wrench"></span> How to play
+  </a></li>
+  
+</ul>
+</div>
+
+<div id="section">
+<h1><i>Login</i><span class="glyphicon glyphicon-user"></span></h1>
+
+  <form action="../JSP/login.jsp" name ="lform" onsubmit="return validateForm()" method="post" >
+  E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input name="emailid" type="text" id="emailid" maxlength="25"  />
+<br></br>
+ Password:
+<input name="pwd" type="password" id="pwd" maxlength="12" />
+   <br></br>
+<input class="myButton" type = "submit" value= "Log In"/>  &nbsp;&nbsp;&nbsp;&nbsp;
+<button class ="myButton" onclick="location.href='../JSP/Welcome/exitgame.jsp'">Log Out</button>
+  </form>
+  
+</div>
+
+<div id="footer">
+<i>Happy Gaming</i>
+</div>
+
+
+</body>
+</html>
